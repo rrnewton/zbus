@@ -83,6 +83,10 @@ jobs:
           cargo --locked check --manifest-path test_fixtures/blocking_api/Cargo.toml --features target-blocking
           cargo --locked check --manifest-path test_fixtures/blocking_api/Cargo.toml --features legacy-macro-feature
           cargo --locked check --manifest-path test_fixtures/blocking_api/Cargo.toml --all-features
+      - name: Check the macros against an already-released zbus
+        run: |
+          cargo --locked check --manifest-path test_fixtures/mixed_version/Cargo.toml
+          cargo --locked check --manifest-path test_fixtures/mixed_version/Cargo.toml --features target-blocking
 
   linux_test:
     runs-on: ubuntu-latest
